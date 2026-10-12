@@ -1,0 +1,72 @@
+/* ============ SIDE MENU + AUDIENCE BAR (loaded by ui.js) ============ */
+.menubtn{flex:none;margin-left:-8px}
+
+/* slim bar under the header: Men · Women · Kids | Categories · New · Shops */
+.audbar{border-top:1px solid var(--line)}
+.audbar .wrap{display:flex;align-items:center;gap:6px;height:44px;overflow-x:auto;scrollbar-width:none}
+.audbar .wrap::-webkit-scrollbar{display:none}
+.audbar a{flex:none;padding:7px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--ink-2);transition:.15s}
+.audbar a:hover{background:var(--peach);color:var(--coral-d)}
+.audbar a.on{background:var(--ink);color:var(--bg)}
+.audbar .sep{flex:none;width:1px;height:20px;background:var(--line);margin:0 6px}
+
+/* the drawer */
+.sb-ov{position:fixed;inset:0;z-index:95;background:rgba(23,23,28,.5);backdrop-filter:blur(3px);opacity:0;transition:opacity .25s}
+.sb-ov.show{opacity:1}
+.sidebar{position:fixed;top:0;bottom:0;left:0;z-index:96;width:min(380px,92vw);background:var(--card,#fff);color:var(--ink);display:flex;flex-direction:column;box-shadow:var(--sh-l);border-radius:0 26px 26px 0;transform:translateX(-102%);transition:transform .28s cubic-bezier(.2,.8,.2,1);outline:none}
+.sidebar.show{transform:none}
+.sb-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 10px}
+.sb-scroll{overflow-y:auto;padding:4px 14px 28px;flex:1;overscroll-behavior:contain}
+.sb-user{display:flex;align-items:center;gap:12px;padding:10px 6px 12px}
+.sb-user .av{width:44px;height:44px;font-size:18px;display:grid;place-items:center;border-radius:50%;background:var(--coral);color:#fff;flex:none}
+.sb-loc{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--bg);margin-bottom:10px}
+.sb-loc>span:nth-child(2){flex:1;line-height:1.3}
+.sb-live{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:var(--mint);color:var(--mint-d);margin-bottom:6px}
+.sb-live>span{flex:1;line-height:1.3}
+.sb-h{margin:20px 6px 8px;font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sb-link{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:11px 12px;border-radius:14px;font-weight:600;font-size:15px;color:var(--ink);transition:.15s}
+.sb-link .ic{color:var(--ink-2);flex:none}
+.sb-link:hover,.sb-link:focus-visible{background:var(--peach)}
+.sb-link span:first-of-type{flex:1}
+.sb-n{min-width:22px;height:22px;padding:0 7px;border-radius:99px;background:var(--coral);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;flex:none}
+
+/* Men / Women / Kids accordions */
+.sb-acc{border:1px solid var(--line);border-radius:18px;margin-bottom:8px;overflow:hidden;background:var(--bg)}
+.sb-acc-h{display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;text-align:left}
+.sb-ph{width:46px;height:46px;border-radius:14px;overflow:hidden;flex:none;background:var(--peach)}
+.sb-ph img{width:100%;height:100%;object-fit:cover}
+.sb-t{flex:1;display:flex;flex-direction:column;line-height:1.25}.sb-t b{font-size:16px}
+.sb-chev{transition:transform .2s;color:var(--muted)}
+.sb-acc.open .sb-chev{transform:rotate(90deg)}
+.sb-acc-b{display:none;padding:2px 8px 10px}
+.sb-acc.open .sb-acc-b{display:block}
+.sb-cat{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:12px;font-size:14.5px;font-weight:500}
+.sb-cat:hover,.sb-cat:focus-visible{background:var(--peach);color:var(--coral-d)}
+.sb-cat.all{font-weight:700;color:var(--coral-d)}
+.sb-rv{display:flex;gap:10px;padding:0 6px}
+.sb-rv a{display:flex;flex-direction:column;gap:4px;align-items:center;width:78px}
+.sb-rv img{width:78px;height:96px;border-radius:12px;object-fit:cover}
+
+/* home page: Shop for Men / Women / Kids cards */
+.aud3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.audcard{position:relative;display:block;border-radius:26px;overflow:hidden;aspect-ratio:4/3.1;background:var(--peach);box-shadow:var(--sh);color:#fff}
+.audcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.audcard:hover img{transform:scale(1.06)}
+.audcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72))}
+.audcard .in{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.audcard h3{font-size:30px;line-height:1}
+.audcard p{opacity:.88;font-size:13.5px;margin-top:6px}
+.audcard .go{width:40px;height:40px;border-radius:50%;background:#fff;color:#17171C;display:grid;place-items:center;font-weight:800;flex:none}
+@media(max-width:900px){.aud3{grid-template-columns:1fr}.audcard{aspect-ratio:16/8}}
+
+/* categories page: Men / Women / Kids filter tabs */
+.audtabs{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 22px}
+.audtabs button{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;background:var(--card)}
+.audtabs button.on{background:var(--coral);border-color:var(--coral);color:#fff}
+
+@media(max-width:760px){.audbar{display:none}.sidebar{border-radius:0 22px 22px 0}}
+@media(max-width:560px){.menubtn{margin-left:-6px}}
+[data-theme="dark"] .sidebar{background:var(--card)}
+[data-theme="dark"] .sb-link:hover,[data-theme="dark"] .sb-cat:hover{background:#2c211e}
+[data-theme="dark"] .audbar a.on{background:#F4F1EE;color:#17171C}
+.sidebar .logo .t{display:inline}
